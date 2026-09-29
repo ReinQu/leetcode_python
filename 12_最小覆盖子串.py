@@ -22,13 +22,13 @@ class Solution:
                 if window[char]==need[char]:
                     have+=1
             while have==need_count:
-                if right-left+1<min_len:
+                if right-left+1<min_len:#如果后续没有更小的窗口，就不用进行了
                     min_len=right-left+1
-                    result=s[left:right+1]
+                    result=s[left:right+1]#切片不包含右边
 
-                left_char=s[left]
+                left_char=s[left]#先记录
 
-                if left_char in need:
+                if left_char in need:#如果即将去掉的字符在need中，直接对window操作
                     window[left_char]-=1
 
                     if window[left_char]<need[left_char]:
